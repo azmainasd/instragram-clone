@@ -4,8 +4,6 @@ const mongoose = require('mongoose')
 const PORT = 5000
 const {MONGOURI} =  require('./keys')
 
-require('./models/user')
-// mongoose.model('User')
 
 mongoose.connect(MONGOURI)
 mongoose.connection.on('connected', ()=>{
@@ -17,8 +15,12 @@ mongoose.connection.on('error', (err)=>{
     console.log('err connecting', err);
 })
 
+require('./models/user')
+require('./models/post')
+
 app.use(express.json()) //It kind of middleware needed to be parse all the incoming request into json 
 app.use(require('./routes/auth'))
+app.use(require('./routes/post'))
 
 // const customMiddleware = (req, res, next) => {
 //     console.log('middleware executed');
