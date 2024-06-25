@@ -1,5 +1,9 @@
 module.exports={
-    MONGOURI: 'mongodb+srv://new101:0g9x9KqHSRl7qT8x@cluster0.frahk1p.mongodb.net/insta_db?retryWrites=true&w=majority',
+    MONGOURI: 'mongodb+srv://a2m41n:jTtLDC5lU9nMrf74@cluster0.sgiyxqm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
     //0g9x9KqHSRl7qT8x
     JWT_SECRET: '0g9x9KqHSRl7qT8xAZM'
 }
+
+
+
+// jTtLDC5lU9nMrf74

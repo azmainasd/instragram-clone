@@ -12,7 +12,7 @@ router.get('/', (req, res)=>{
 })
 
 router.get('/protected', requireLogin, (req, res)=>{
-    res.send('Hello from auth.js')
+    res.send('Hello from protected auth.js')
 })
 
 
@@ -26,20 +26,22 @@ router.post('/sign-up', (req, res)=>{
         if(savedUser){
             return res.status(422).json({error: 'User already exists with that email'})
         }
-        bcrypt.hash(password, 12).then((hashedPass)=>{
-            const user = new User({
-                name,
-                email,
-                password: hashedPass
-            })
-            user.save()
-            .then((user)=>{
-                res.json({message: "User saved successfully"})
-            })
-            .catch((err)=>{
-                console.log('err in save:',err);
-            })
-        }) 
+        // .then((hashedPass)=>{
+            
+        // }) 
+
+        const user = new User({
+            name,
+            email,
+            password: bcrypt.hashSync (password, 12)
+        })
+        user.save()
+        .then((user)=>{
+            res.json({message: "User saved successfully"})
+        })
+        .catch((err)=>{
+            console.log('err in save:',err);
+        })
     })
     .catch((err)=>{
         console.log('err in find', err);

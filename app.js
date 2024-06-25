@@ -41,6 +41,6 @@ app.use(require('./routes/post'))
 
 
 
-app.listen(PORT, ()=>{
+app.listen(PORT, () => {
     console.log('server is running on', PORT);
 })
